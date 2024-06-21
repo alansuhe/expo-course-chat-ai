@@ -1,26 +1,20 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    bg: '#fefefe', // 底色
+    mid: '#ededed', // 中间背景色
+    front: '#646464', // 前景色，primary
+    sub: '#999999', // 副前景色
+    link: '#1679AB', // 连接色，用于外部资源，或则场景跳转
+    act: '#f4a460', // interactive互动，用于本场景的互动
+    warn: '#ff6347', // 警告色
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    bg: '#262626', // 底色
+    mid: '#383838', // 中间背景色
+    front: '#dedede', // 前景色，primary
+    sub: '#9f9f9f', // 副前景色
+    link: '#87cefa', // 连接色，用于外部资源，或则场景跳转
+    act: '#ff7f50', // interactive互动，用于本场景的互动
+    warn: '#ff6347', // 警告色
   },
 };
