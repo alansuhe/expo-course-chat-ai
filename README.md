@@ -1,50 +1,86 @@
-# Welcome to your Expo app 👋
+## 目标
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+### 概述
 
-## Get started
+> 作者在Bilibili等视频网站推出的expo视频讲座相关内容。
+> [关注我的ReactNative视频课程](https://space.bilibili.com/385534/channel/collectiondetail?sid=2116506)
 
-1. Install dependencies
+本视频课程作者将从头开始实际操作。基于最新的Expo框架版本，配合作者精心选择的组件，开发一个ReactNative App，实现类似ChatGPT移动应用的主要功能，并录制成有参考学习作用的课程。
 
-   ```bash
-   npm install
-   ```
+本课程以实际操作演示为主，基本概念内容均快速带过，目的是让同学可以边看边动手完成自己的App开发。
 
-2. Start the app
+课程后期会根据情况，为课程学员提供文档和源码等资料。
+### 功能点
 
-   ```bash
-    npx expo start
-   ```
+1. 对接AI大模型api接口，实现Completion, streaming等数据交互；
+2. 兼容OpenAI和类似模型；
+3. 对话界面，用户与AI文字聊天；
+4. 流式文字输出，just like ChatGPT;
 
-In the output, you'll find options to open the app in a
+### 部分要求
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+1. 带Drawer抽屉菜单；
+2. 聊天过程本地留下记录；
+3. 明暗两种UI风格；
+4. 多语言；（中/En）
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 可选要求
 
-## Get a fresh project
+1. 用户管理：注册/登录/安全/修改等；
+2. 可选择不同AI平台和模型；
+## 工具和组件
 
-When you're ready, run:
+1. Expo router;
+2. NativeWind？// tailwindCss
+3. OpenAI Nodejs;
+4. OpenAI封装兼容组件/或自己写；
+5.  i18n插件;
+6. mmkv存储;
+7. 数据库？
+8. 用户服务？
 
-```bash
-npm run reset-project
-```
+## 操作内容
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+1. Expo项目创建；
+2. 在Expo Go中开发调试；
+3. 在Development build中开发调试；
+4. 安装配置各种组件，实现相关功能；
+5. 注册各类云服务，充值...
+6. 对接AI大语言模型平台；
+7. AI聊天测试；
+8. UI美化+性能Ï调优；
+9. EAS build本地打包+云端打包；
 
-## Learn more
+## 课程设计
 
-To learn more about developing your project with Expo, look at the following resources:
+1. 准备环境，创建项目；
+2. 导航和基本页面设计；
+3. 风格设计，tailwind? 明暗效果；
+4. 多语言实现；
+5. 主要组件；
+6. input；
+7. AI组件及api，注册moonshot；
+8. 实现completion；
+9. AI封装，实现streaming；
+10. 优化；
+11. 打包；
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 视频章节
+0. 预告
+1. 新建项目+设计对标
+2. 基本导航逻辑框架
+3. 自定义抽屉菜单
+4. 抽屉菜单项的聚焦效果
+5. 抽屉菜单中模拟历史chat列表
+6. 导航的push问题处理
+7. 建立风格体系的方法论探讨：tailwind组件和明暗切换
+8. 设计自己的Style风格体系
+9. 打造自己的风格钩子useStyle
+10. 导航框架Theme一致化改造
+11. 界面套用新风格
 
-## Join the community
+## 其他说明
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+1. 作者主要在macos系统上操作，大多数情况下以iOS苹果设备为测试对象；
+2. 本人之前的其他Expo基础课程，对加深理解和快速进入开发状态非常有用，建议可以先学习；
+3. 本课程适合有一定前端基础的同学，如果是纯小白，建议也可以看个几集找找感觉，有兴趣了再从基础学起。
