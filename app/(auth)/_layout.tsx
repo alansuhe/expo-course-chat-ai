@@ -7,6 +7,7 @@ import { Link, useNavigation, useRouter } from 'expo-router';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { DrawerActions } from '@react-navigation/native';
 import useStyle from '@/hooks/useStyle';
+import { ScreenWidth, sp } from '@/constants/Sizes';
 
 const MenuItems = [{
   label: 'Chat',
@@ -33,7 +34,7 @@ function DrawerMenu(props: DrawerContentComponentProps) {
   const navigation = useNavigation()
   // console.log(focusedRouteName, props.state)
 
-  const {s,t, cl} = useStyle()
+  const { s, t, cl } = useStyle()
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -55,7 +56,9 @@ function DrawerMenu(props: DrawerContentComponentProps) {
                 router.push(m.url)} />)
           })
         }
+
         <View style={{ borderColor: 'grey', borderTopWidth: StyleSheet.hairlineWidth, marginHorizontal: 10 }} />
+
         <Text style={{ color: 'grey', padding: 4 }}>之前chat</Text>
         {
           MockHistory.map((m, i) => <DrawerItem
@@ -69,12 +72,12 @@ function DrawerMenu(props: DrawerContentComponentProps) {
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
 
         <Link href={'/'} replace>
-          <Text style={[t.normal, {color: cl.act}]}>
+          <Text style={[t.normal, { color: cl.act }]}>
             Logout</Text>
         </Link>
 
         <Link href='/(modal)/settings'>
-          <Text style={[t.normal, {color: cl.link}]}>
+          <Text style={[t.normal, { color: cl.link }]}>
             Settings</Text>
         </Link>
       </View>
@@ -85,7 +88,11 @@ function DrawerMenu(props: DrawerContentComponentProps) {
 export default function TabLayout() {
 
   return (
-    <Drawer drawerContent={(props) => <DrawerMenu {...props} />}>
+    <Drawer
+      screenOptions={{
+        drawerStyle: { width: ScreenWidth * 0.8},
+      }}
+      drawerContent={(props) => <DrawerMenu {...props} />}>
       {/* <Drawer.Screen name='chat/new' options={{ title: 'New Chat' }} /> */}
       {/* <Drawer.Screen name='explore' options={{ title: 'Explore 探索' }} /> */}
     </Drawer>
