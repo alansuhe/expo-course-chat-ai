@@ -8,6 +8,7 @@ import { Message } from '@/types/AiInterfaces'
 import ChatItem from './ChatItem'
 import OpenAI from 'openai'
 import ChatInput from './ChatInput'
+import useStyle from '@/hooks/useStyle'
 
 const AI_KEY = process.env.EXPO_PUBLIC_AI_API
 const AI_URL = process.env.EXPO_PUBLIC_AI_URL
@@ -18,13 +19,14 @@ const openai = new OpenAI({
 });
 
 const ChatPage = () => {
+
+    const {cl} = useStyle()
+
     const { id } = useLocalSearchParams()
     const isNew = !id
 
     const [messages, setMessages] = useState<Message[]>([])
     const [loading, setLoading] = useState(false)
-
-    
 
     const onShouldSend = (question: string) => {
 
@@ -46,14 +48,14 @@ const ChatPage = () => {
         const chatCompletion = await openai.chat.completions.create({
             messages,
             model: "moonshot-v1-8k",
-        }).catch(async (err)=>{
+        }).catch(async (err) => {
             console.warn(err)
-        }).finally(()=>{
+        }).finally(() => {
             setLoading(false)
         })
         console.log('completion --->', chatCompletion)
-        if(chatCompletion)
-        setMessages(prv => [...prv, chatCompletion.choices[0].message as Message])
+        if (chatCompletion)
+            setMessages(prv => [...prv, chatCompletion.choices[0].message as Message])
         // setLoading(false)
     }
 
@@ -91,12 +93,18 @@ const ChatPage = () => {
                 }}
             />
 
-            <KeyboardAvoidingView
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                keyboardVerticalOffset={100}
-            >
-                <ChatInput onShouldSend={onShouldSend} />
-            </KeyboardAvoidingView>
+            {
+                loading ?
+                <ActivityIndicator size={'large'} color={cl.act} />
+                :
+                <KeyboardAvoidingView
+                    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                    keyboardVerticalOffset={100}
+                >
+                    <ChatInput onShouldSend={onShouldSend} />
+                </KeyboardAvoidingView>
+            }
+
 
         </SafeAreaView>
     )

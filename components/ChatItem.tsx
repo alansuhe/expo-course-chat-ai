@@ -6,6 +6,7 @@ import { sp } from '@/constants/Sizes'
 import useStyle from '@/hooks/useStyle'
 
 const ChatItem = ({ item, loading, isLast }: { item: Message, isLast?: boolean, loading?: boolean }) => {
+    console.log("---islast? loading?---", isLast, loading)
 
     const { s, cl, t } = useStyle();
 
@@ -18,7 +19,7 @@ const ChatItem = ({ item, loading, isLast }: { item: Message, isLast?: boolean, 
             <FontAwesome6 name='robot' size={sp.l} color={cl.sub} />
             {
                 isLast && loading ?
-                    <ActivityIndicator color={cl.link} />
+                    <ActivityIndicator color={cl.act} size={'large'} />
                     :
                     <Text style={t.normal}>
                         {content}
